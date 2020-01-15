@@ -3,13 +3,14 @@
 	margin: 0;
 }
 
+html,
 body {
+	height: 100%;
 	background-color: rgb(117, 156, 126);
 }
 
 h2 {
 	text-align: center;
-	margin-top: 5vw;
 	font-size: 4vw;
 }
 
@@ -18,22 +19,45 @@ h3 {
 	font-size: 3vw;
 }
 
+#root {
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+	width: 100%;
+	height: 100%;
+}
+
+.gameBoard {
+	width: 100%;
+	display: flex;
+	justify-content: center;
+	flex-direction: column;
+}
+
 #grid-container {
 	margin: 2vw auto;
-	display: flex;
-	flex-wrap: wrap;
+	display: grid;
+	grid-template-columns: repeat(auto-fit, minmax(31%, 1fr));
+	grid-template-rows: repeat(auto-fit, minmax(31%, 1fr));
+	grid-gap: 0.3vw;
+	border: solid black 0.3vw;
+	background-color: black;
 	width: 40%;
 	height: 37vw;
 }
 
 .grid {
+	display: flex;
+	justify-content: center;
+	align-items: center;
 	font-family: YoureGone-Regular, sans-serif;
+	background-color: rgb(117, 156, 126);
 	font-size: 8vw;
 	text-align: center;
 	line-height: 150%;
-	width: 31%;
-	height: 32%;
-	border: solid black 0.3vw;
+	width: 100%;
+	height: 100%;
 	user-select: none;
 }
 
@@ -57,4 +81,15 @@ button {
 
 .won {
 	background-color: coral;
+}
+
+@media only screen and (max-width: 1024px) {
+	#grid-container {
+		width: 80%;
+		height: 75vw;
+	}
+
+	.grid {
+		font-size: 17vw;
+	}
 }

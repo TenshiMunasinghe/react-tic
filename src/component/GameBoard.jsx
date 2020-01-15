@@ -105,14 +105,14 @@ class GameBoard extends Component {
 		});
 
 		return (
-			<React.Fragment>
+			<div className='gameBoard'>
 				{!gameOver && <h2 id='turns'>{currentPlayer}'s turn</h2>}
 				{gameOver && (
 					<h2 id='result'>{result === "tie" ? "Tie" : `${result} wins`}</h2>
 				)}
 				<div id='grid-container'>{mainContent}</div>
 				{gameOver && <button onClick={this.handleReset}>Reset</button>}
-			</React.Fragment>
+			</div>
 		);
 	}
 }
