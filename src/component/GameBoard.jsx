@@ -21,11 +21,8 @@ class GameBoard extends Component {
 		[2, 4, 6]
 	];
 
-	componentDidUpdate = () => {
+	checkWin = () => {
 		const {gridContent, gameOver} = this.state;
-		if (gameOver) {
-			return;
-		}
 		let breakLoop = false;
 		this.winningCombos.forEach(e => {
 			if (
@@ -59,13 +56,13 @@ class GameBoard extends Component {
 				let gridContent = [...prev.gridContent];
 				gridContent[id] = "X";
 				return {gridContent, currentPlayer: "O"};
-			});
+			}, this.checkWin);
 		} else {
 			this.setState(prev => {
 				let gridContent = [...prev.gridContent];
 				gridContent[id] = "O";
 				return {gridContent, currentPlayer: "X"};
-			});
+			}, this.checkWin);
 		}
 	};
 
